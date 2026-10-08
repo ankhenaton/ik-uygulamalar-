@@ -1,0 +1,3 @@
+SGK / İK Hesaplama Merkezi
+Sürüm: 2026.10.08-PRODUCTION-04
+QA: 70/70 HTML sayfası duman testi geçti; yerel bağlantılar ve sitemap/canonical eşleşmesi doğrulandı.

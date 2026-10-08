@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ankhenaton.github.io/sgk-ik-hesaplama-merkezi/sitemap.xml
+Sitemap: https://ankhenaton.github.io/sgk-ik-hesaplama-merkezi/sitemap.txt

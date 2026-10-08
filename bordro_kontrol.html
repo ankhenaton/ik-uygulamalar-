@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bordro Hata Kontrolü ve Ön Denetim | Excel Şablonu | SGK / İK Hesaplama Merkezi</title>
+<meta name="description" content="Standart Excel şablonunu doldurup bordroyu tarayıcı içinde denetleyin. Mükerrerlik, veri bütünlüğü, prim günleri, PEK tavanı, SGK primleri, vergi, brüt-net ve işveren maliyeti istisnalarını profesyonel ön denetim mantığıyla bulun.">
+<meta name="keywords" content="bordro hata kontrolü,bordro denetimi,bordro excel kontrol,bordro kontrol programı,SGK PEK kontrolü,payroll audit,İK bordro denetim">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://ankhenaton.github.io/sgk-ik-hesaplama-merkezi/bordro_kontrol.html">
+<meta name="theme-color" content="#008080">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bordro Hata Kontrolü ve Ön Denetim">
+<meta property="og:description" content="Standart Excel şablonu ile bordro verisini tarayıcı içinde istisna tabanlı ön denetimden geçirin.">
+<meta property="og:url" content="https://ankhenaton.github.io/sgk-ik-hesaplama-merkezi/bordro_kontrol.html">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Bordro Hata Kontrolü ve Ön Denetim","url":"https://ankhenaton.github.io/sgk-ik-hesaplama-merkezi/bordro_kontrol.html","applicationCategory":"BusinessApplication","operatingSystem":"Web Browser","description":"Standart Excel şablonundan alınan bordro verisini tarayıcı içinde istisna tabanlı ön denetimlerle kontrol eden araç.","author":{"@type":"Person","name":"Serkan Mavişerit"},"isPartOf":{"@type":"WebSite","name":"SGK / İK Hesaplama Merkezi","url":"https://ankhenaton.github.io/sgk-ik-hesaplama-merkezi/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ana Menü","item":"https://ankhenaton.github.io/sgk-ik-hesaplama-merkezi/"},{"@type":"ListItem","position":2,"name":"Bordro Hata Kontrolü","item":"https://ankhenaton.github.io/sgk-ik-hesaplama-merkezi/bordro_kontrol.html"}]}
+</script>
+<link rel="stylesheet" href="sgk95.css">
+<style>
+.hero2{padding:12px;border:2px inset #fff;background:#d4d0c8;margin-bottom:10px}.badge{display:inline-block;background:#000080;color:#fff;border:2px outset #fff;padding:4px 8px;font-size:12px;font-weight:bold}.workflow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.step{background:#eee;border:2px outset #fff;padding:10px}.step strong{display:block;color:#000080;margin-bottom:4px}.schema-status{padding:10px;border:2px inset #fff;background:#eee;margin-top:8px}.schema-status.ok{background:#ddffdd}.schema-status.warn{background:#ffffcc}.schema-status.error{background:#ffdddd}.toolbar2{display:flex;gap:7px;flex-wrap:wrap;align-items:center}.audit-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.kpi-box{padding:10px;border:2px inset #fff;background:#f7f7f7}.kpi-box span{display:block;font-size:12px;font-weight:bold}.kpi-box strong{font-size:28px}.kpi-box.danger{background:#ffdddd}.kpi-box.warn{background:#ffffcc}.kpi-box.info{background:#e6f0ff}.summary-lines{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:8px}.summary-lines>div{padding:7px;background:#eee;border:1px solid #aaa}.table.compact td,.table.compact th{padding:4px;font-size:12px}.danger-row td{background:#ffdddd}.warn-row td{background:#ffffcc}.info-row td{background:#e7eef8}.filters{display:grid;grid-template-columns:180px 1fr;gap:8px;margin-bottom:8px}.callout{background:#ffffcc;border:2px inset #fff;padding:10px}.download-link{font-weight:bold}.small{font-size:12px}.muted{color:#444}.source-note a{word-break:break-all}.check-list{columns:2;column-gap:30px}.check-list p{margin:4px 0}.privacy{background:#e6f7e6;border:1px solid #698b69;padding:8px}.mono{font-family:"Courier New",monospace}@media(max-width:800px){.workflow,.audit-kpis,.summary-lines{grid-template-columns:1fr}.filters{grid-template-columns:1fr}.check-list{columns:1}}
+</style>
+<script defer src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script defer src="bordro_kontrol.js"></script>
+</head>
+<body>
+<div class="win">
+ <div class="titlebar"><span>SGK / İK Hesaplama Merkezi — Bordro Denetim Terminali</span><span class="controls"><span>_</span><span>□</span><span>×</span></span></div>
+ <div class="layout">
+  <aside class="nav panel">
+   <h3>SGK / İK Merkezi</h3>
+   <a href="index.html">🏠 Ana Menü</a>
+   <div class="group">Ücret &amp; Maliyet</div>
+   <a href="personel_maliyeti.html">👥 Personel Maliyeti</a><a href="zam_maliyeti.html">📈 Zam Maliyeti</a><a href="terfi_maliyeti.html">⬆️ Terfi Maliyeti</a><a href="isten_ayrilis_maliyeti.html">🚪 İşten Ayrılış</a><a href="fazla_mesai.html">⏱️ Fazla Mesai</a>
+   <div class="group">SGK &amp; Bordro</div>
+   <a href="pek_hesaplama.html">🧾 PEK Hesaplama</a><a href="sgk_tavan_asimi.html">⬆️ SGK Tavan Aşımı</a><a href="ek_odeme_istisna.html">💳 Ek Ödeme / İstisna</a><a href="tesvik_optimizasyon.html">⚙️ Teşvik Karşılaştırma</a><a href="asgari_ucret_destegi.html">💰 Asgari Ücret Desteği</a><a href="eksik_gun.html">📅 Eksik Gün / Kısmi</a><a href="stajyer_cirak.html">🎓 Stajyer / Çırak</a><a href="ev_hizmetleri.html">🏠 Ev Hizmetleri</a><a href="yurtdisi_calisan.html">✈️ Yurtdışı Çalışan</a><a href="prim_gecikme.html">💸 Prim / Gecikme</a><a href="4b_prim.html">👤 4/B Prim</a>
+   <div class="group">İş Hukuku &amp; Takvim</div>
+   <a href="kidem_ihbar.html">⚖️ Kıdem &amp; İhbar</a><a href="yillik_izin.html">🌴 Yıllık İzin</a><a href="takvim.html">📆 İK Takvimi</a>
+   <div class="group">Veri &amp; Analiz</div>
+   <a class="active" href="bordro_kontrol.html">🔎 Bordro Denetimi</a><a href="excel_veri_temizleme.html">🧹 Excel Veri Temizleme</a><a href="ik_kpi.html">📊 İK KPI</a><a href="personel_butcesi.html">📊 Personel Bütçesi</a>
+   <div class="group">Bilgi</div><a href="rehber/index.html">📚 SGK / İK Rehber</a>
+  </aside>
+  <main>
+   <div class="crumb"><a href="index.html">Ana Menü</a> &gt; Bordro Hata Kontrolü</div>
+   <section class="hero2">
+    <div class="toolbar2"><div><h1 style="margin:0 0 7px">Bordro Hata Kontrolü &amp; Ön Denetim</h1><p style="margin:0">Standart Excel şablonunu doldurun. Sistem kolon tahmini yapmaz; <b>şema doğrulama → veri bütünlüğü → mutabakat → mevzuat parametreleri → aykırılık</b> sırasıyla istisna taraması yapar.</p></div><span class="badge">STANDARD TEMPLATE / EXCEPTION AUDIT</span></div>
+   </section>
+
+   <section class="card">
+    <h2>Nasıl çalışır?</h2>
+    <div class="workflow">
+     <div class="step"><strong>1 · Şablonu indir</strong>Resmî denetim şablonunu Excel olarak indirin.</div>
+     <div class="step"><strong>2 · Bordroyu doldur</strong>Başlıkları değiştirmeden yalnızca bordro satırlarını girin.</div>
+     <div class="step"><strong>3 · Dosyayı yükle</strong>Excel tarayıcıda okunur ve şablon sürümü doğrulanır.</div>
+     <div class="step"><strong>4 · İstisnaları incele</strong>HATA / UYARI / İNCELEME bulgularını uzman gözüyle doğrulayın.</div>
+    </div>
+    <p class="privacy" style="margin-bottom:0">🔒 <b>Yerel işlem:</b> Bordro verisi denetim için sunucuya gönderilmez. Excel dosyası tarayıcı içinde okunur ve analiz edilir.</p>
+   </section>
+
+   <section class="grid">
+    <div class="card">
+     <h2>1. Standart Excel Şablonu</h2>
+     <p>Kolonları tahmin ettirmiyoruz. Herkes aynı veri sözleşmesini kullanıyor.</p>
+     <p><a class="download-link" href="bordro_denetime_sablonu_2026_v3.xlsx" download>⬇ Bordro Denetim Excel Şablonunu İndir</a></p>
+     <p class="small muted">Şablon: Bordro_Veri · Parametreler · Kullanim · Ornek_Bordro · Listeler</p>
+     <div class="callout"><b>Kural:</b> <span class="mono">Bordro_Veri</span> sayfasındaki başlıkları silmeyin, yeniden adlandırmayın veya yerlerini değiştirmeyin. Hesaplanan alanların formüllerini de değiştirmeyin.</div>
+    </div>
+    <div class="card">
+     <h2>2. Bordro Dosyasını Yükle</h2>
+     <input id="fileInput" type="file" accept=".xlsx,.xls">
+     <p id="fileName" class="small">Dosya seçilmedi.</p>
+     <button class="btn" id="demoBtn">Örnek Bordroyu Test Et</button>
+     <button class="btn" id="runBtn" disabled>Denetimi Çalıştır</button>
+     <button class="btn" id="resetBtn">Sıfırla</button>
+     <p id="loadMsg" class="small muted">Standart Excel şablonu bekleniyor.</p>
+    </div>
+   </section>
+
+   <section class="card">
+    <h2>Şablon Doğrulama</h2>
+    <div class="toolbar2"><span><b>Personel:</b> <span id="rowCount">0</span></span><span><b>Kolon:</b> <span id="colCount">0</span></span></div>
+    <div id="schemaStatus" class="schema-status"></div>
+    <p id="paramInfo" class="small muted">Parametreler dosya yüklendikten sonra okunur.</p>
+   </section>
+
+   <section class="card">
+    <h2>Excel Önizleme</h2>
+    <div id="preview"><p class="muted">Dosya yüklenince ilk satırlar burada gösterilecek.</p></div>
+   </section>
+
+   <section id="auditPanel" class="card" hidden>
+    <div class="toolbar2" style="justify-content:space-between"><h2 style="margin:0">Denetim Sonucu</h2><div><button class="btn" id="exportBtn">CSV Denetim Raporu</button><button class="btn" id="exportFindingsBtn">CSV Bulgular</button></div></div>
+    <p id="auditMsg" class="small"></p>
+    <div id="summary"></div>
+    <h3>Bulgu filtreleri</h3>
+    <div class="filters"><select id="severityFilter"><option value="ALL">Tüm seviyeler</option><option value="ERROR">HATA</option><option value="WARN">UYARI</option><option value="INFO">İNCELEME</option></select><input id="findingSearch" placeholder="Kod, alan veya açıklama ara…"></div>
+    <div class="audit-table-wrap" id="findings"><p class="muted">Henüz denetim yapılmadı.</p></div>
+   </section>
+
+   <section class="card">
+    <h2>Denetim Kapsamı</h2>
+    <div class="check-list">
+      <p>✓ Şablon sürümü ve kolon bütünlüğü</p><p>✓ Boş/mükerrer sicil</p><p>✓ Sayısal veri tipi</p><p>✓ Negatif ve imkânsız tutarlar</p>
+      <p>✓ Bordro dönemlerinin tekliği</p><p>✓ İşe giriş/çıkış tarih mantığı</p><p>✓ Prim günü / eksik gün</p><p>✓ Brüt kalem → brüt toplam mutabakatı</p>
+      <p>✓ PEK alt/üst sınır analitiği</p><p>✓ SGK / işsizlik primi analitiği</p><p>✓ GV matrahı / kümülatif matrah</p><p>✓ Damga vergisi analitik kontrolü</p>
+      <p>✓ Net ücret mutabakatı</p><p>✓ Toplam işveren maliyeti</p><p>✓ Mükerrer ad/kimlik anomalisi</p><p>✓ Güçlü ücret aykırılığı</p>
+    </div>
+    <div class="callout" style="margin-top:10px"><b>Denetim ilkesi:</b> Bir analitik fark otomatik olarak hukuki hata değildir. Teşvik, istisna, SGDP, özel sigortalılık, TİS, yabancı çalışan, rapor, ücretsiz izin, icra/haciz, BES ve şirket bordro parametreleri ayrıca doğrulanmalıdır.</div>
+   </section>
+
+   <section class="card seo-text">
+    <h2>Profesyonel bordro ön denetimi neden şablonla yapılır?</h2>
+    <p>Farklı bordro programlarının kolon adları değişebilir. Bu nedenle otomatik olarak “bu kolon PEK olabilir” tahmini yapmak yerine, denetim dosyasını standart bir veri sözleşmesine bağlamak daha izlenebilir bir yöntemdir. Bu araçta Excel şablonu önce yapısal olarak doğrulanır; ardından her personel satırı ayrı ayrı ve dosya toplamları çapraz olarak incelenir.</p>
+    <p>Denetim; tamlık, doğruluk, dönemsellik, mükerrerlik, mutabakat ve olağandışılık katmanlarından oluşur. Kesin mevzuat sonucu vermek yerine <b>insan incelemesini hak eden istisnaları</b> öne çıkarır.</p>
+    <p class="source-note"><b>2026 temel parametreleri:</b> SGK'nın 2026 özel sektör 4/a için açıkladığı PEK aylık alt sınır 33.030 TL, üst sınır 297.270 TL'dir. Çalışma ve Sosyal Güvenlik Bakanlığı 2026 brüt asgari ücreti 33.030 TL olarak yayımlamıştır. Bu rakamlar şablonda başlangıç parametresi olarak yer alır ve dönem/özel statüye göre değiştirilmelidir. <a href="https://www.sgk.gov.tr/Content/Post/2e0c9e1a-2cfe-4456-af10-49d3de0c58ba/Prime-Esas-Kazanc-Miktarlari-2026-01-14-10-35-39" target="_blank" rel="noopener">SGK PEK kaynağı</a> · <a href="https://www.csgb.gov.tr/poco-pages/asgari-ucret" target="_blank" rel="noopener">ÇSGB asgari ücret kaynağı</a></p>
+    <p><a href="rehber/bordro-hata-kontrolu-nasil-yapilir.html">📚 Bordro hata kontrolü rehberini okuyun</a> · <a href="index.html">🏠 Tüm hesaplama araçlarına dönün</a></p>
+   </section>
+   <footer class="footer">SGK / İK Hesaplama Merkezi · Geliştirici: Serkan Mavişerit · Bordro verileri tarayıcı içinde işlenir. Bu araç ön denetim ve bilgilendirme amaçlıdır; resmi bordro onayı, mali müşavirlik veya hukuki görüş yerine geçmez.</footer>
+  </main>
+ </div>
+</div>
+</body>
+</html>
